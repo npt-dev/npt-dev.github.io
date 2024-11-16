@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { fonts } from "@/assets";
 import { ChildrenProps } from "@/type/common";
 import { ThemeProvider } from "@/components/theme-provider";
+import { twMerge } from "tailwind-merge";
 
 const { geistSans, geistMono } = fonts;
 export const metadata: Metadata = {
@@ -14,7 +15,11 @@ export default function RootLayout({ children }: ChildrenProps) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={twMerge(
+          geistSans.variable,
+          geistMono.variable,
+          "antialiased"
+        )}
       >
         <ThemeProvider
           attribute="class"
